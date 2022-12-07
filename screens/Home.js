@@ -9,7 +9,7 @@ import {
   FlatList,
 } from 'react-native';
 
-import {icons, images, SIZES, COLORS, FONTS} from '../constants';
+import {icons, images, SIZES, COLORS} from '../constants';
 
 const Home = ({navigation}) => {
   // Dummy Datas
@@ -381,7 +381,7 @@ const Home = ({navigation}) => {
               justifyContent: 'center',
               borderRadius: SIZES.radius,
             }}>
-            <Text style={{...FONTS.h3}}>{currentLocation.streetName}</Text>
+            <Text>{currentLocation.streetName}</Text>
           </View>
         </View>
 
@@ -447,7 +447,6 @@ const Home = ({navigation}) => {
               marginTop: SIZES.padding,
               color:
                 selectedCategory?.id == item.id ? COLORS.white : COLORS.black,
-              ...FONTS.body5,
             }}>
             {item.name}
           </Text>
@@ -457,8 +456,8 @@ const Home = ({navigation}) => {
 
     return (
       <View style={{padding: SIZES.padding * 2}}>
-        <Text style={{...FONTS.h1}}>Main</Text>
-        <Text style={{...FONTS.h1}}>Categories</Text>
+        <Text>Main</Text>
+        <Text>Categories</Text>
 
         <FlatList
           data={categories}
@@ -510,12 +509,12 @@ const Home = ({navigation}) => {
               justifyContent: 'center',
               ...styles.shadow,
             }}>
-            <Text style={{...FONTS.h4}}>{item.duration}</Text>
+            <Text>{item.duration}</Text>
           </View>
         </View>
 
         {/* Restaurant Info */}
-        <Text style={{...FONTS.body2}}>{item.name}</Text>
+        <Text>{item.name}</Text>
 
         <View
           style={{
@@ -532,7 +531,7 @@ const Home = ({navigation}) => {
               marginRight: 10,
             }}
           />
-          <Text style={{...FONTS.body3}}>{item.rating}</Text>
+          <Text>{item.rating}</Text>
 
           {/* Categories */}
           <View
@@ -543,10 +542,8 @@ const Home = ({navigation}) => {
             {item.categories.map(categoryId => {
               return (
                 <View style={{flexDirection: 'row'}} key={categoryId}>
-                  <Text style={{...FONTS.body3}}>
-                    {getCategoryNameById(categoryId)}
-                  </Text>
-                  <Text style={{...FONTS.h3, color: COLORS.darkgray}}> . </Text>
+                  <Text>{getCategoryNameById(categoryId)}</Text>
+                  <Text style={{color: COLORS.darkgray}}> . </Text>
                 </View>
               );
             })}
@@ -556,7 +553,6 @@ const Home = ({navigation}) => {
               <Text
                 key={priceRating}
                 style={{
-                  ...FONTS.body3,
                   color:
                     priceRating <= item.priceRating
                       ? COLORS.black
