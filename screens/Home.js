@@ -12,8 +12,6 @@ import {
 import {icons, images, SIZES, COLORS} from '../constants';
 
 const Home = ({navigation}) => {
-  // Dummy Datas
-
   const initialCurrentLocation = {
     streetName: 'Kuching',
     gps: {
@@ -77,7 +75,6 @@ const Home = ({navigation}) => {
 
   // price rating
   const affordable = 1;
-  const fairPrice = 2;
   const expensive = 3;
 
   const restaurantData = [

@@ -23,13 +23,13 @@ const Restaurant = ({route, navigation}) => {
 
     setRestaurant(item);
     setCurrentLocation(currentLocation);
-  });
+  }, [route.params]);
 
   function editOrder(action, menuId, price) {
     let orderList = orderItems.slice();
-    let item = orderList.filter(a => a.menuId == menuId);
+    let item = orderList.filter(a => a.menuId === menuId);
 
-    if (action == '+') {
+    if (action === '+') {
       if (item.length > 0) {
         let newQty = item[0].qty + 1;
         item[0].qty = newQty;
@@ -59,7 +59,7 @@ const Restaurant = ({route, navigation}) => {
   }
 
   function getOrderQty(menuId) {
-    let orderItem = orderItems.filter(a => a.menuId == menuId);
+    let orderItem = orderItems.filter(a => a.menuId === menuId);
 
     if (orderItem.length > 0) {
       return orderItem[0].qty;
